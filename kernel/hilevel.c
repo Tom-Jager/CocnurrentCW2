@@ -51,14 +51,18 @@ void hilevel_handler_rst(ctx_t* ctx) {
 
   int_enable_irq();
 
-  memset( &pcb[ topID ], 0, sizeof( pcb_t ) );
+  /*memset( &pcb[ topID ], 0, sizeof( pcb_t ) );
   pcb[ topID ].pid      = topID++;
   pcb[ topID ].ctx.cpsr = 0x50;
   pcb[ topID ].ctx.pc   = ( uint32_t )( &main_console );
   pcb[ topID ].ctx.sp   = ( uint32_t )( &tos_console  );
-  topID+=1;
+  topID+=1;*/
+  pcb[ 0 ].pid      = 1;
+  pcb[ 0 ].ctx.cpsr = 0x50;
+  pcb[ 0 ].ctx.pc   = ( uint32_t )( &main_console );
+  pcb[ 0 ].ctx.sp   = ( uint32_t )( &tos_console  );
 
-  memset( &pcb[ topID ], 0, sizeof( pcb_t ) );
+  /*memset( &pcb[ topID ], 0, sizeof( pcb_t ) );
   pcb[ topID ].pid      = topID++;
   pcb[ topID ].ctx.cpsr = 0x50;
   pcb[ topID ].ctx.pc   = ( uint32_t )( &main_P3 );

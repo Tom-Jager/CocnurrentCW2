@@ -56,7 +56,6 @@ void* load( char* x ) {
 
 void main_console() {
   char* p, x[ 1024 ];
-
   while( 1 ) {
     puts( "shell$ ", 7 ); gets( x, 1024 ); p = strtok( x, " " );
 
@@ -65,7 +64,6 @@ void main_console() {
 
       if( 0 == pid ) {
         void* addr = load( strtok( NULL, " " ) );
-        int_enable_irq();
         exec( addr );
       }
     }
