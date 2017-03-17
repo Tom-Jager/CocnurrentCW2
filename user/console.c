@@ -33,6 +33,7 @@ extern void main_P4();
 extern void main_P5();
 
 void* load( char* x ) {
+  puts( x , 2);
   if     ( 0 == strcmp( x, "P3" ) ) {
     return &main_P3;
   }
@@ -61,8 +62,8 @@ void main_console() {
 
     if     ( 0 == strcmp( p, "fork" ) ) {
       pid_t pid = fork();
-
-      if( 0 == pid ) {
+      char* string;
+      if( 1 == pid ) {
         void* addr = load( strtok( NULL, " " ) );
         exec( addr );
       }
